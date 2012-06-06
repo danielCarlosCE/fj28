@@ -25,7 +25,7 @@ public class ProdutoDAO {
         session.save(p);
         transaction.commit();
     }
-    public void edita(Produto p){
+    public void atualiza(Produto p){
         Transaction transaction = session.beginTransaction();
         session.update(p);
         transaction.commit();
@@ -37,5 +37,9 @@ public class ProdutoDAO {
     }
     public List<Produto> listaTudo(){
         return this.session.createCriteria(Produto.class).list();
+    }
+
+    public Produto carrega(Long id) {
+        return (Produto) this.session.load(Produto.class, id);
     }
 }

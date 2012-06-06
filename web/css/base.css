@@ -1,0 +1,5 @@
+table { border-collapse: collapse;  margin: auto;}
+td    { border: 1px solid black; padding: 10px;}
+thead { background: burlywood; color: black;font-weight: bold}
+#conteudo{margin: auto; width: 600px;}
+

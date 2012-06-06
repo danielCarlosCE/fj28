@@ -30,6 +30,18 @@ public class ProdutosController {
         dao.salva(produto);
         result.redirectTo(this).lista();
     }
+    public Produto edita(Long id){
+        return dao.carrega(id);
+    }
+    public void altera(Produto produto){
+        dao.atualiza(produto);
+        result.redirectTo(this).lista();
+    }
+    public void remove(Long id){
+        Produto p = dao.carrega(id);
+        dao.exclui(p);
+        result.redirectTo(this).lista();
+    }
     public void formulario(){}
   
 }
