@@ -15,11 +15,22 @@
         <title>FJ28</title>
     </head>
     <body>
-        <div class='cssmenu'>
-            <ul>
-                <li class='active '><a href='#'><span>Home</span></a></li>
-                <li><a href='lista'><span>Lista de Produtos</span></a></li>
-                <li><a href='formulario'><span>Novo Produto</span></a></li>
-                <li><a href='#'><span>Contato</span></a></li>
-            </ul>
-        </div>
+        <div id="header"></div>
+
+    </div>
+    <div id="erros">
+        <ul>
+            <c:forEach items="${errors}" var="error">
+                <li>${error.category } - ${error.message }</li>
+            </c:forEach>
+        </ul>
+    </div>
+
+    <div class='cssmenu'>
+        <ul>
+            <li class='active '><a href='#'><span>Home</span></a></li>
+            <li><a href="<c:url value="/produtos/lista"/>" ><span>Lista de Produtos</span></a></li>
+            <li><a href="<c:url value="/produtos/novo"/>"><span>Novo Produto</span></a></li>
+            <li><a href='#'><span>Contato</span></a></li>
+        </ul>
+    </div>

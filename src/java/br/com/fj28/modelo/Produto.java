@@ -3,6 +3,9 @@ package br.com.fj28.modelo;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import org.hibernate.validator.Length;
+import org.hibernate.validator.Min;
+import org.hibernate.validator.NotNull;
 
 /**
  *

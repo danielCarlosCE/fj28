@@ -1,9 +1,7 @@
 <%@include file="../cabecalho.jsp" %>
-       <form action="altera">
+<form action="<c:url value="/produtos/${produto.id}"/>" method="POST">
             <fieldset>
                 <legend> Editar Produto </legend>
-               
-                <input type="hidden" name="produto.id" value="${produto.id}" />
                 
                 <label for="nome"> Nome: </label> <br />
                 <input id="nome" type="text" name="produto.nome" value="${produto.nome}"/> <br />
@@ -15,8 +13,7 @@
                 <input id="preco" type="text" name="produto.preco" value="${produto.preco}"/> <br />
 
 
-                <button type="submit">Enviar</button>
+                <button type="submit" name="_method" value="PUT">Enviar</button>
             </fieldset>
         </form>
-    </body>
-</html>
+ <%@include file="../rodape.jsp" %>

@@ -2,7 +2,7 @@ package br.com.fj28.dao;
 
 import br.com.caelum.vraptor.ioc.Component;
 import br.com.fj28.modelo.Produto;
-import br.com.fj28.util.HibernateUtil;
+import br.com.fj28.infra.CriadorDeSession;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -17,8 +17,8 @@ public class ProdutoDAO {
     
     private final Session session;
 
-    public ProdutoDAO() {
-        this.session = HibernateUtil.getSession();
+    public ProdutoDAO(Session session) {
+        this.session = session;
     }   
     public void salva(Produto p) {
         Transaction transaction = session.beginTransaction();

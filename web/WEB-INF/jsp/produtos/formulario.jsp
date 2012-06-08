@@ -1,20 +1,20 @@
 <%@include file="../cabecalho.jsp" %>
-        <form action="adiciona">
+<form action="<c:url value="/produtos"/>" method="POST">
             <fieldset>
                 <legend> Adicionar Produto </legend>
                
                 <label for="nome"> Nome: </label> <br />
-                <input id="nome" type="text" name="produto.nome"/> <br />
+                <input id="nome" type="text" name="produto.nome" value="${produto.nome}"/> <br />
 
                 <label for="descricao">Descrição:</label> <br />
-                <textarea id="descricao" name="produto.descricao"></textarea> <br />
+                <textarea id="descricao" name="produto.descricao">${produto.descricao}</textarea> <br />
                 
                 <label for="preco">Preço:</label> <br />
-                <input id="preco" type="text" name="produto.preco"/> <br />
+                <input id="preco" type="text" name="produto.preco" value="${produto.preco}"/> <br />
 
 
                 <button type="submit">Enviar</button>
+                
             </fieldset>
         </form>
-    </body>
-</html>
+  <%@include file="../rodape.jsp" %>
