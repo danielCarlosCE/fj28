@@ -1,4 +1,4 @@
-<%@include file="../cabecalho.jsp" %>
+<%--<%@include file="../cabecalho.jsp" %>--%>
 <div id="conteudo">
     <table >
         <thead>
@@ -29,5 +29,5 @@
         </tbody>
     </table>
 </div>
-<%@include file="../rodape.jsp" %>
+<%--<%@include file="../rodape.jsp" %>--%>
 

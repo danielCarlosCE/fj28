@@ -2,6 +2,7 @@ package br.com.fj28.controller;
 
 import br.com.caelum.vraptor.*;
 import br.com.caelum.vraptor.validator.ValidationMessage;
+import br.com.caelum.vraptor.view.Results;
 import br.com.fj28.dao.ProdutoDAO;
 import br.com.fj28.modelo.Produto;
 import java.util.List;
@@ -23,7 +24,7 @@ public class ProdutosController {
         this.validator = validator;
     }
 
-    //@Get @Path("/produtos")
+    @Get @Path("/produtos")
     public List<Produto> lista() {
         return dao.listaTudo();
     }
@@ -62,6 +63,20 @@ public class ProdutosController {
     public void formulario() {
     }
     
+    public List<Produto> busca(String nome){
+        result.include("nome",nome);
+        return dao.busca(nome);
+    }
+    
+    @Get @Path("/produtos/busca.json")
+    public void buscaJson(String q){
+        result.use(Results.json())
+                .withoutRoot()
+                .from(dao.busca(q))
+                .exclude("id","descricao")
+                .serialize();
+    }
+    
     private void validarProduto(Produto produto) {
         if (produto.getNome() == null || produto.getNome().length() < 3) {
             validator.add(new ValidationMessage("Nomé é obrigatório e precisa ter mais de 3 letras", "Campo nome"));
@@ -75,6 +90,6 @@ public class ProdutosController {
             validator.add(new ValidationMessage("Preço precisa ser positivo", "Campo preco"));
         }
 
-        validator.onErrorUsePageOf(ProdutosController.class).formulario();
+        validator.onErrorUsePageOf(this).formulario();
     }
 }

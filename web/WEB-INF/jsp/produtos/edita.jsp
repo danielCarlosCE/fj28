@@ -1,19 +1,32 @@
-<%@include file="../cabecalho.jsp" %>
-<form action="<c:url value="/produtos/${produto.id}"/>" method="POST">
-            <fieldset>
-                <legend> Editar Produto </legend>
-                
-                <label for="nome"> Nome: </label> <br />
-                <input id="nome" type="text" name="produto.nome" value="${produto.nome}"/> <br />
 
-                <label for="descricao">Descrição:</label> <br />
-                <textarea id="descricao" name="produto.descricao">${produto.descricao}</textarea> <br />
-                
-                <label for="preco">Preço:</label> <br />
-                <input id="preco" type="text" name="produto.preco" value="${produto.preco}"/> <br />
+<form id="produtosForm" action="<c:url value="/produtos/${produto.id}"/>" method="POST">
+    <fieldset>
+        <legend> Editar Produto </legend>
+
+        <label for="nome"> Nome: </label> 
+        <input id="nome" class="required" minlength="3" type="text" name="produto.nome" value="${produto.nome}"/> 
+
+        <label for="descricao">Descrição:</label> 
+        <textarea id="descricao" class="required" minlength="40" name="produto.descricao">${produto.descricao}</textarea> 
+
+        <label for="preco">Preço:</label> 
+        <input id="preco" class="required" min="0" type="text" name="produto.preco" value="${produto.preco}"/> 
+
+        <br />
+        <button type="submit" name="_method" value="PUT">Enviar</button>
+    </fieldset>
+</form>
+
+<script type="text/javascript">
+    $('#produtosForm').validate();
+</script>
 
 
-                <button type="submit" name="_method" value="PUT">Enviar</button>
-            </fieldset>
-        </form>
- <%@include file="../rodape.jsp" %>
+
+
+
+
+
+
+
+

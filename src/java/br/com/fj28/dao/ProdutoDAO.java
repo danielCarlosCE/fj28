@@ -6,6 +6,8 @@ import br.com.fj28.infra.CriadorDeSession;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.Restrictions;
 
 /**
  *
@@ -41,5 +43,11 @@ public class ProdutoDAO {
 
     public Produto carrega(Long id) {
         return (Produto) this.session.load(Produto.class, id);
+    }
+
+    public List<Produto> busca(String nome) {
+        return this.session.createCriteria(Produto.class)
+                .add(Restrictions.ilike("nome", nome, MatchMode.ANYWHERE))
+                .list();
     }
 }
