@@ -3,6 +3,7 @@ package br.com.fj28.controller;
 import br.com.caelum.vraptor.*;
 import br.com.caelum.vraptor.validator.ValidationMessage;
 import br.com.caelum.vraptor.view.Results;
+import br.com.fj28.autenticar.Restrito;
 import br.com.fj28.dao.ProdutoDAO;
 import br.com.fj28.modelo.Produto;
 import java.util.List;
@@ -30,6 +31,7 @@ public class ProdutosController {
     }
 
     @Post @Path("/produtos")
+    @Restrito
     public void adiciona(final Produto produto) {
 
         validarProduto(produto);
@@ -41,11 +43,13 @@ public class ProdutosController {
     
 
     @Get @Path("/produtos/{id}")
+    @Restrito
     public Produto edita(Long id) {
         return dao.carrega(id);
     }
 
     @Put @Path("/produtos/{produto.id}")
+    @Restrito
     public void altera(Produto produto) {
         validarProduto(produto);
         dao.atualiza(produto);
@@ -53,6 +57,7 @@ public class ProdutosController {
     }
     
     @Delete @Path("/produtos/{id}")
+    @Restrito
     public void remove(Long id) {
         Produto p = dao.carrega(id);
         dao.exclui(p);
@@ -60,6 +65,7 @@ public class ProdutosController {
     }
     
     @Get @Path("/produtos/novo")
+    @Restrito
     public void formulario() {
     }
     
@@ -77,6 +83,7 @@ public class ProdutosController {
                 .serialize();
     }
     
+    //validação server-side
     private void validarProduto(Produto produto) {
         if (produto.getNome() == null || produto.getNome().length() < 3) {
             validator.add(new ValidationMessage("Nomé é obrigatório e precisa ter mais de 3 letras", "Campo nome"));

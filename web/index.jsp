@@ -2,12 +2,13 @@
 
 <% //request.getRequestDispatcher("/produtos").forward(request, response); %> 
 
-<div id="conteudoIndex" >
+<div id="conteudo" >
 
-    <h1>
-        FJ28 - Java Web </h1>
-     <h2>
+    <h3>
+        Apostila Caelum FJ28 - Java Web </h3>
+     <h4>
         VRaptor, Hibernate e AJAX
-    </h2>
+    </h4>
+   
 
 </div>

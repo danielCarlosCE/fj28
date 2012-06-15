@@ -50,4 +50,8 @@ public class ProdutoDAO {
                 .add(Restrictions.ilike("nome", nome, MatchMode.ANYWHERE))
                 .list();
     }
+
+    public void recarrega(Produto produto) {
+        session.refresh(produto);
+    }
 }

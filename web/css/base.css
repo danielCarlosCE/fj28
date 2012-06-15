@@ -12,17 +12,13 @@ tr{border:  1.5px solid #000000;}
 
 thead { background:white;  color: black;font-weight: bold; border: 1.5px solid #000000;}
 
-#conteudo{margin: auto; width: 600px;}
+
+.compra{ background: #7197D9; text-align: center;}
+.compra input{width:20px; text-align: center;}
 
 .botesTabela{ background: black; padding: 2px; border: 3px solid white;
               border-style: outset; text-decoration: none; color: white;
 }
-
-#erros{background: crimson }
-#erros li{list-style:  none;}
-
-.error{color: crimson }
-
 
 .link {
 
@@ -32,6 +28,32 @@ thead { background:white;  color: black;font-weight: bold; border: 1.5px solid #
     cursor: pointer;
 }
 
-#busca{width: 250px;}
 
 
+#erros{background: crimson }
+#erros li{list-style:  none;}
+.error{color: crimson }
+
+#header{ margin-bottom: 10px; border: 1px solid black;}
+
+#usuario{float:right; margin-right: 20px;}
+
+#buscaCarrinho{ width: 500px; margin: 0 auto 10px auto;  }
+
+#busca{width: 250px; float: left; margin-right: 5px; margin-top: 2.5%; }
+
+#carrinho{float: left;
+          background: white; padding: 2px; border: 3px solid black;
+          border-style: outset; text-decoration: none; color: white;
+          }
+#carrinho a{color: black;}          
+#carrinho ul{list-style: none;	display: inline; padding-left: 5px;}
+#carrinho li{ float: left; display: inline; padding:6px;  }
+#carrinho img{ float: left; display: inline; }
+
+
+#clear{clear:both;}
+
+
+#conteudo{margin: auto; width: auto; }
+#conteudo h3, h4{text-align: center;}
